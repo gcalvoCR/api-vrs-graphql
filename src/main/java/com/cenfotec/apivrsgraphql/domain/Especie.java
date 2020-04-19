@@ -1,21 +1,15 @@
 package com.cenfotec.apivrsgraphql.domain;
 
-import javax.persistence.Entity;
 
 import org.springframework.data.annotation.Id;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
-@Entity
 public class Especie {
 	
+		//Attributes
 		@Id
 		public String id;
 		public String especie;
@@ -23,6 +17,21 @@ public class Especie {
 		public String fecha;
 		public String tipo;
 		public String guid;
+		
+		
+		//Constructors
+		public Especie() {}
+		
+		
+		public Especie(String especie, String nombre, String fecha, String tipo, String guid) {
+			this.especie = especie;
+			this.nombre = nombre;
+			this.fecha = fecha;
+			this.tipo = tipo;
+			this.guid = guid;
+		}
+		
+		//getters and setters
 		public String getId() {
 			return id;
 		}

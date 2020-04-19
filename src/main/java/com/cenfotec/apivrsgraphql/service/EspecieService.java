@@ -1,17 +1,22 @@
 package com.cenfotec.apivrsgraphql.service;
 
+import java.util.List;
 import java.util.Optional;
+
+import org.springframework.http.ResponseEntity;
 
 import com.cenfotec.apivrsgraphql.domain.Especie;
 
 public interface EspecieService {
 
 	public Especie saveEspecie(Especie especie);
+	
+	public Optional<Especie> getEspecie(String id);
 
-	public Optional<Especie> listAllEspecies();
+	public List<Especie> getEspecies();
 
-	public void deleteEspecie(Especie especie);
-
-	public Especie updateEspecie(Especie especie);
+	public ResponseEntity<Especie> updateEspecie(String id, Especie especie);
+	
+	public ResponseEntity<?> deleteEspecie(String id);
 
 }

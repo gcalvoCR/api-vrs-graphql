@@ -1,36 +1,56 @@
 package com.cenfotec.apivrsgraphql.service;
 
+import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.cenfotec.apivrsgraphql.domain.Especie;
+import com.cenfotec.apivrsgraphql.repository.EspecieRepository;
 
 @Service
-public class EspecieServiceImpl implements EspecieService{
+public class EspecieServiceImpl implements EspecieService {
+
+	@Autowired
+	EspecieRepository especieRepo;
 
 	@Override
 	public Especie saveEspecie(Especie especie) {
-		// TODO Auto-generated method stub
-		return null;
+		return especieRepo.save(especie);
 	}
 
 	@Override
-	public Optional<Especie> listAllEspecies() {
-		// TODO Auto-generated method stub
-		return null;
+	public Optional<Especie> getEspecie(String id) {
+		return especieRepo.findById(id);
 	}
 
 	@Override
-	public void deleteEspecie(Especie especie) {
-		// TODO Auto-generated method stub
-		
+	public List<Especie> getEspecies() {
+		return especieRepo.findAll();
 	}
 
 	@Override
-	public Especie updateEspecie(Especie especie) {
-		// TODO Auto-generated method stub
-		return null;
+	public ResponseEntity<?> deleteEspecie(String id) {
+		return getEspecie(id).map(record -> {
+			especieRepo.deleteById(id);
+				return ResponseEntity.ok().build();
+			}).orElse(ResponseEntity.notFound().build());	
+	}
+
+	@Override
+	public ResponseEntity<Especie> updateEspecie(String id, Especie especie) {
+		return getEspecie(id).map(record -> {
+			record.setEspecie(especie.getEspecie());
+			record.setNombre(especie.getNombre());
+			record.setFecha(especie.getFecha());
+			record.setTipo(especie.getTipo());
+			record.setGuid(especie.getGuid());
+			Especie updated = saveEspecie(record);
+			return ResponseEntity.ok().body(updated);
+		}).orElse(ResponseEntity.notFound().build());
 	}
 
 }
