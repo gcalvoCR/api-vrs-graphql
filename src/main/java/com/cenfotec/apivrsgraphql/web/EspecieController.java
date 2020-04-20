@@ -43,12 +43,21 @@ public class EspecieController {
 
 	@PutMapping(value = "/{id}")
 	public ResponseEntity<Especie> update(@PathVariable("id") String id, @RequestBody Especie especie) {
-		return service.updateEspecie(id, especie);
+		Especie record =  service.updateEspecie(id, especie);
+		if(record!=null) {
+			return ResponseEntity.ok().body(record);
+		} else {
+			return ResponseEntity.notFound().build();
+		}
 	}
 
 	@DeleteMapping(path = { "/{id}" })
 	public ResponseEntity<?> delete(@PathVariable("id") String id) {
-		return service.deleteEspecie(id);
+		if(service.deleteEspecie(id)) {
+			return (ResponseEntity<?>) ResponseEntity.ok();
+		} else {
+			return ResponseEntity.notFound().build();
+		}
 	}
 }
 	

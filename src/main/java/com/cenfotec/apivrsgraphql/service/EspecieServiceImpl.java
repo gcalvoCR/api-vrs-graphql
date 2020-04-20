@@ -33,15 +33,14 @@ public class EspecieServiceImpl implements EspecieService {
 	}
 
 	@Override
-	public ResponseEntity<?> deleteEspecie(String id) {
-		return getEspecie(id).map(record -> {
-			especieRepo.deleteById(id);
-				return ResponseEntity.ok().build();
-			}).orElse(ResponseEntity.notFound().build());	
+	public boolean deleteEspecie(String id) {
+		Optional<Especie> especie = getEspecie(id);
+		especieRepo.deleteById(id);
+		return especie.isPresent();
 	}
 
 	@Override
-	public ResponseEntity<Especie> updateEspecie(String id, Especie especie) {
+	public Especie updateEspecie(String id, Especie especie) {
 		return getEspecie(id).map(record -> {
 			record.setEspecie(especie.getEspecie());
 			record.setNombre(especie.getNombre());
@@ -49,8 +48,8 @@ public class EspecieServiceImpl implements EspecieService {
 			record.setTipo(especie.getTipo());
 			record.setGuid(especie.getGuid());
 			Especie updated = saveEspecie(record);
-			return ResponseEntity.ok().body(updated);
-		}).orElse(ResponseEntity.notFound().build());
+			return updated;
+		}).orElse(null);
 	}
 
 }

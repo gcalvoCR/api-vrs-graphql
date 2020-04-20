@@ -15,8 +15,8 @@ public interface EspecieService {
 
 	public List<Especie> getEspecies();
 
-	public ResponseEntity<Especie> updateEspecie(String id, Especie especie);
+	public Especie updateEspecie(String id, Especie especie);
 	
-	public ResponseEntity<?> deleteEspecie(String id);
+	public boolean deleteEspecie(String id);
 
 }

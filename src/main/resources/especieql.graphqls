@@ -1,0 +1,17 @@
+type Especie {
+	id: String!,
+	especie: String!,
+	nombre: String!,
+	fecha: String!,
+	tipo: String!,
+	guid: String!
+}
+
+type Query {
+	Especies: [Especie]
+	Especie(id: String): Especie
+}
+
+type Mutation {
+	createEspecie(especie: String, nombre: String, fecha: String, tipo: String, guid: String): Especie
+}
