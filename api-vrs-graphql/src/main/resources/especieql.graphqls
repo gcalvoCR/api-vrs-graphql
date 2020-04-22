@@ -1,0 +1,22 @@
+type Especie {
+	id: String!,
+	nombre: String!,
+	autor: String!,
+	fecha: String!,
+	tipo: String!,
+	guid: String!
+}
+
+type Query {
+	getEspecies: [Especie]
+	getEspecieId(id: String!): Especie
+	getEspecieGuid(guid: String!): Especie
+
+}
+
+type Mutation {
+	createEspecie(nombre: String, autor: String, tipo: String): Especie
+	updateEspecie(id: String, nombre: String, autor: String, fecha: String, tipo: String): Especie
+	deleteEspecie(id: String): Boolean
+
+}
