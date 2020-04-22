@@ -1,10 +1,10 @@
 Esta es una aplicación simple de Spring Boot donde se explora:
 
-- La creacion de un API, usando un RestController para un CRUD completo.
+- La creación de un API, usando un RestController para un CRUD completo.
 - La misma implementacion utilizando GraphQL
 - Manejo de Excepciones de Spring Boot
 - Consumo de servicios (en este caso se consume un servicio para generar GUIDS)
-- Utilizacion de MongoDB (en este caso es local por lo que tendría que estar instaldo y corriendo en su computadora)
+- Utilizacion de MongoDB (en este caso es local por lo que tendría que estar instalado y corriendo en su computadora)
 
 ## Requisitos
 
