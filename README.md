@@ -47,9 +47,9 @@ Esta es una aplicación simple de Spring Boot donde se explora:
 
 3. GET (by guid) ```localhost:8080/especies/guid/{guid}```
 
-3. GET (all) ```localhost:8080/especies/```
+4. GET (all) ```localhost:8080/especies/```
 
-1. PUT  ```localhost:8080/especies/{id}```
+5. PUT  ```localhost:8080/especies/{id}```
 
 ```json
     {
@@ -62,7 +62,7 @@ Esta es una aplicación simple de Spring Boot donde se explora:
     }
 ```
 
-1. DELETE  ```localhost:8080/especies/{id}```
+6. DELETE  ```localhost:8080/especies/{id}```
 
 ## Ejemplos de Request para GraphQL
 
