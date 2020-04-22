@@ -21,14 +21,14 @@ Esta es una aplicación simple de Spring Boot donde se explora:
 ## Pasos de ejecución
 
 1. Levante MongoDB:
-.. Dirigase a una consola y digite ```cd C:\Program Files\MongoDB\Server\4.2\bin``` 
-.. Una vez en la carpeta digite ``` mongod``` 
-.. El servicio de Mongo debería de estar corriendo.
+   - Dirigase a una consola y digite ```cd C:\Program Files\MongoDB\Server\4.2\bin``` 
+   - Una vez en la carpeta digite ``` mongod``` 
+   - El servicio de Mongo debería de estar corriendo.
 
 
 2. Levante los dos servicios de SpringBoot:
-.. *especies* correra en ```localhost:8080/especies```
-.. *guid* correra en ```localhost:8081/guid```
+   - *especies* correra en ```localhost:8080/especies```
+   - *guid* correra en ```localhost:8081/guid```
 
 
 ## Ejemplos de Request para la API Rest
